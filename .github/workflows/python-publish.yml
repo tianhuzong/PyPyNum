@@ -63,6 +63,8 @@ jobs:
           ls;
           echo '\ndist:'
           ls dist 
+          zip -r archive.zip dist
+          ls
       - name: Create Release
         id: create_release
         uses: softprops/action-gh-release@v1
@@ -73,5 +75,5 @@ jobs:
           tag_name: pypynum  # 使用推送的标签名称
           
           body: pypynum打包
-          files: dist/**/*
+          files: archive.zip
       
